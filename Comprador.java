@@ -20,7 +20,9 @@ public class Comprador{
         return boletosVendidos;
     }
 
-
+    public String toString() {
+        return "Nombre: " + this.nombre + "\nEmail:" + this.email + "\nCantidad de boletos a comprar: " + this.cantidadBoletos + "\nPresupuesto: " + this.presupuesto;
+    }
 
 
 
