@@ -24,8 +24,11 @@ public class Comprador{
         return "Nombre: " + this.nombre + "\nEmail:" + this.email + "\nCantidad de boletos a comprar: " + this.cantidadBoletos + "\nPresupuesto: " + this.presupuesto;
     }
 
-
-
+    //Se agregó este método para poder personalizar mejor las respuestas
+    //No se esperaba usar este método en el análisis
+    public String getNombre(){
+        return this.nombre;
+    }
 
 
 

@@ -12,10 +12,9 @@ public class Eratour{
         
 
         Scanner scan = new Scanner(System.in);
-        Random ticket = new Random();
-        Random a = new Random();
-        Random b = new Random();
+        Random rnd = new Random();
         int menu, decision=0;
+        Comprador comprador = null;
 
         while(decision!=6){
             
@@ -43,7 +42,7 @@ public class Eratour{
                     int presupuesto=scan.nextInt();
                     
                     System.out.println("---------------------------------------");
-                    Comprador comprador = new Comprador(nombre, email, cantidad, presupuesto);
+                    comprador = new Comprador(nombre, email, cantidad, presupuesto);
 
                     System.out.println(comprador);
 
@@ -51,6 +50,33 @@ public class Eratour{
 
                 case 2:
                     System.out.println("Bienvenido a 'Nueva solicitud de boletos'");
+
+                    System.out.println("==========================================");
+                    System.out.println("Validaremos si su ticket es apto para comprar boletos");
+
+                    int ticket = rnd.nextInt(14999)+1; 
+
+                    int a = rnd.nextInt(14999)+1; 
+
+                    int b = rnd.nextInt(14999)+1; 
+
+                    if(ticket>=a && ticket<=b || ticket>=b && ticket<=a){
+                        System.out.println("Valor del tiket: " + ticket + "\nValor de A: " + a + "\nValor de B: " + b + "\n\n");
+                        System.out.println(comprador.getNombre() + " su tiket es válido, puede comprar su(s) boleto(s)");
+                        System.out.println("==========================================");
+                    }else{
+                        System.out.println("Valor del tiket: " + ticket + "\nValor de A: " + a + "\nValor de B: " + b + "\n\n");
+                        System.out.println(comprador.getNombre() + ", Ticket NO válido");
+                        System.out.println("==========================================");
+                    }
+
+
+
+
+
+
+
+
                     break;
 
                 case 3:
