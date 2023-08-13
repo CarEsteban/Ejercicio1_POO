@@ -1,7 +1,7 @@
 /** 
  *  @author: Esteban enrique Cárcamo Urízar
- *  Fecha de creación: 11/08/23 ; Hora: 8:05
- *  Última fecha de modificación: 
+ *  Fecha de creación: 11/08/23 ; Hora: 8:05 am
+ *  Última fecha de modificación: 13 de agosto 5:35 pm
  *  Descripción:
     * El punto de entrada del programa Eratour consite en un progra que permita a los usuarios interactuar
     * con el sistema para registrar compradores, solicitar boletos, comprarlos y hacer sus respectivas validaciones, también
