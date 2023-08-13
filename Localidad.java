@@ -9,6 +9,12 @@ public class Localidad {
         this.precio = precio;
     }
 
+    //Se agregó este método para poder restar la cantidad del espacio y tener el nuevo espacio
+    //No se esperaba usar este método en el análisis
+    public void setEspacio(int nuevoEspacio){
+        this.espacio = this.espacio-nuevoEspacio;
+    }
+
     public int getEspacio(){
         return espacio;
     }

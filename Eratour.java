@@ -15,6 +15,9 @@ public class Eratour{
         Random rnd = new Random();
         int menu, decision=0;
         Comprador comprador = null;
+        Localidad localidad_1 = new Localidad(1, 20, 100);
+        Localidad localidad_2 = new Localidad(5, 20, 500);
+        Localidad localidad_3 = new Localidad(10, 20, 1000);
 
         while(decision!=6){
             
@@ -68,10 +71,64 @@ public class Eratour{
                         System.out.println("Valor del tiket: " + ticket + "\nValor de A: " + a + "\nValor de B: " + b + "\n\n");
                         System.out.println(comprador.getNombre() + ", Ticket NO válido");
                         System.out.println("==========================================");
+                        break;
                     }
 
+                    
+                    System.out.println("==========================================");
+                    System.out.println("Asignando su localidad.........");
+
+                    int numLocalidad = rnd.nextInt(3)+1;
+
+                    if(numLocalidad==1){
+                        comprador.setLocalidad(localidad_1.getTipo());
+                        System.out.println("Estimado(a) " + comprador.getNombre() + " su localidad será la tipo " + comprador.getLocalidad());
+
+                        if(localidad_1.getEspacio()>0){
+                            System.out.println("Todavía hay espacios para poder asignarles\nEspacio total: " + localidad_1.getEspacio() + " espacios.");
+                            
+                            if(localidad_1.getEspacio()<comprador.getCantidadBoletos()){
+                                System.out.println("Lo siento, no hay mas espacios para la cantidad de boletos que desea\nBoletos deseados: " + comprador.getCantidadBoletos()+ "\nEspacio: " + localidad_1.getEspacio());
+                                break;
+                            }else{
+                                System.out.println("Correcto, si le podemos vender la cantidad de boletos que desea\nBoletos deseados: " + comprador.getCantidadBoletos()+ "\nEspacio: " + localidad_1.getEspacio());
+                                int precioBoletos = comprador.getCantidadBoletos() * localidad_1.getPrecio();
+                                if(comprador.getPresupuesto()<=precioBoletos){
+                                    System.out.println("Lo siento, no podemos venderle los boletos, su presupuesto no se adecuado al precio total de los boletos\nPresupuesto de " + comprador.getNombre() + ": " + comprador.getPresupuesto() + "\nPrecio total de boletos: "+precioBoletos);
+                                    break;
+                                }else{
+                                    System.out.println("FELICIDADES, si podemos venderlo los boletos");
+                                    System.out.println("Boletos vendidos:" + comprador.getCantidadBoletos());
+                                    localidad_1.setEspacio(comprador.getCantidadBoletos());
 
 
+
+
+
+
+
+                                }
+                            
+                            }
+                        
+                        }else{
+                            System.out.println("Lo siento, no hay más espacios en esta localidad\nEspacio total: " + localidad_1.getEspacio() + " espacios.");
+                            break;
+                        }
+
+
+                    }else if(numLocalidad==2){
+                        comprador.setLocalidad(localidad_2.getTipo());
+                        System.out.println("Estimado(a) " + comprador.getNombre() + " su localidad será la tipo " + comprador.getLocalidad());
+                    }else if(numLocalidad==3){
+                        comprador.setLocalidad(localidad_3.getTipo());
+                        System.out.println("Estimado(a) " + comprador.getNombre() + " su localidad será la tipo " + comprador.getLocalidad());
+                    }else{
+                        System.out.println("Imposible, venciste al sistema :O");
+                        break;
+                    }
+
+                    
 
 
 
